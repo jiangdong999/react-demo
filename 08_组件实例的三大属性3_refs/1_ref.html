@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1_ref</title>
+</head>
+
+<body>
+    <div id="test"></div>
+
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <!-- 引入react的核心库-->
+    <script type="text/javascript" src="https://unpkg.zhimg.com/react@16/umd/react.development.js"></script>
+    <!-- 引入react-dom，用于支持react操作虚拟DOM-->
+    <script type="text/javascript" src="https://unpkg.zhimg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 引入babel，将es6转成es5，jsx转成js-->
+    <script type="text/javascript" src="https://unpkg.zhimg.com/babel-standalone@6/babel.min.js"></script>
+
+
+    <script type="text/babel">/*此处一定写babel*/
+        class Person extends React.Component {
+            render() {
+                return (
+                    <div>我是ref</div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Person/>, document.getElementById('test'))
+
+        // 1.熟悉中科软CMS内容管理平台
+        // 2.配置管理中的系统设置、会员设置、水印设置,进行代码梳理
+        // 3.栏目管理:根据栏目结构依次显示该表格的操作
+        // 4.模板管理:可视化拖拽每一个组件的使用,可自动生成脚本与html
+        // 5.内容管理:可编辑内容及保存
+        // 6.项目中使用java传参的方式渲染html模板页面以及脚本路径传递参数的使用
+        // 7.模板添加自定义组件的扩展与使用方法，可已图标，容器，定制化表单，控件等进行页面布局
+        // 8.本地配置中科软CMS后台以及运行代码
+        
+
+
+
+    </script>
+</body>
+
+</html>

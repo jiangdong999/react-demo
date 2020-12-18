@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4_函数式组件使用props</title>
+</head>
+
+<body>
+    <!-- 函数式组件：函数名就是组件名 -->
+    <div id="test"></div>
+
+    <!-- 注意: 部署时，将 "development.js" 替换为 "production.min.js"。-->
+    <!-- 引入react的核心库-->
+    <script type="text/javascript" src="https://unpkg.zhimg.com/react@16/umd/react.development.js"></script>
+    <!-- 引入react-dom，用于支持react操作虚拟DOM-->
+    <script type="text/javascript" src="https://unpkg.zhimg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <!-- 引入babel，将es6转成es5，jsx转成js-->
+    <script type="text/javascript" src="https://unpkg.zhimg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- 引入prop-types 用于对组件标签属性进行限制 -->
+    <script type="text/javascript" src="https://unpkg.zhimg.com/prop-types@15.6/prop-types.js"></script>
+
+    <script type="text/babel">
+
+        // 函数组件只能使用props，没有办法使用state，refs属性
+
+        //1.创建组件
+        function Person(props){
+            console.log(props);
+            const {name,age,sex} = props
+            return (
+                <ul>
+                    <li>姓名：{name}</li>
+                    <li>性别：{sex}</li>
+                    <li>年龄：{age+1}</li>
+                </ul>
+            )
+        }
+        //给属性设置字符串类型，加isRequired是必填项
+        Person.propTypes = {//static 静态
+            name: PropTypes.string.isRequired, //限制name必传，且为字符串
+            sex: PropTypes.string,//限制sex为字符串
+            age: PropTypes.number,//限制age为数值
+            speak: PropTypes.func,//限制speak为函数
+        }
+
+        //给属性设置默认值 
+        Person.defaultProps = {
+            sex:'男',//设置sex默认值 男
+            age:18,//设置age默认值18
+        }
+        //2.渲染组件到页面
+        ReactDOM.render(<Person name="tom"/>, document.getElementById('test'))
+
+        
+    </script>
+
+</body>
+
+</html>
